@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Placement Cell</title>
+    <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
+    <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
+
+  </head>
+  <body>
+
+    <div class="probootstrap-page-wrapper">
+      <!-- Fixed navbar -->
+      
+      <div class="probootstrap-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+              <span><i class="icon-location2"></i>The Placement Cell, College, Delhi</span>
+              <span><i class="icon-phone2"></i>+1-123-456-7890</span>
+              <span><i class="icon-mail"></i>info@theplacementcell.com</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+              <ul>
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-earth"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default probootstrap-navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="btn-more js-btn-more visible-xs">
+              <a href="#"><i class="icon-dots-three-vertical "></i></a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" title="ProBootstrap">The Placement Cell</a>
+          </div>
+
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="about">About Us</a></li>
+              <li class="active"><a href="recruiters">Major Recruiters</a></li>
+              <li><a href="events">Events and News</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="enrollmentno" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="number" class="form-control" name="enrollmentno" placeholder="Enrollment No">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
+      
+      <section class="probootstrap-section probootstrap-section-colored">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-left section-heading probootstrap-animate">
+              <h1>Our Major Recruiters</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="probootstrap-flex-block">
+                <div class="probootstrap-text probootstrap-animate">
+                  <h3>We Try to Find Best Companies For Our Students</h3>
+                  <p>Our main aim is to help students in finding a company where they can utilize their skills best. It order to help them in taking their first step in this professional world, we have collaborated with few finest companies of the world. Following are some major recruiters.</p>
+                </div>
+                <div class="probootstrap-image probootstrap-animate" style="background-image: url(img/slider_3.jpg); width:35%; margin: auto;">
+                  <img src="../static/img/img/all.jpg">
+      </section>
+
+
+      
+      
+      <section class="probootstrap-section">
+        <div class="container">
+          
+          <strong>*Click on the card to know more about the company.</strong>
+
+          <div class="row">
+            {% for r in result %}
+            <div class="col-md-3 col-sm-6">
+              <a a data-toggle="modal" data-target="#recruitersModal{{r[0]}}" class="probootstrap-featured-news-box" style="color: inherit;">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/{{r[9]}}" alt="Deloitte" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">{{r[1]}}</h3>
+                  <p>Education Qualification: {{r[4]}}</p>
+                </div>
+              </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+
+
+          <!-- Modals for Recruiters -->
+      {% for r in result %}
+      <div class="modal fade" id="recruitersModal{{r[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">{{r[1]}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span class="probootstrap-date"><i class="icon-user"></i>About the Company: {{r[2]}}</span>
+            <span class="probootstrap-date"><i class="icon-pin"></i>Role Offered: {{r[3]}}</span>
+            <span class="probootstrap-location"><i class="icon-users2"></i>Eligibility: {{r[4]}}</span>
+            <span class="probootstrap-location"><i class="icon-location2"></i>Location: {{r[5]}}</span>
+            <span class="probootstrap-location"><i class="icon-wallet2"></i>Salary Offered: {{r[6]}}</span>
+            <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience: {{r[7]}}</span>
+            <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty: {{r[8]}})</span>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/jaro.jpg" alt="Jaro Education" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Jaro Education</h3>
+                  <p>Education Qualification: B.Com, BBA</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/PolicyBazaar.png" alt="Policy Bazaar" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Policy Bazaar</h3>
+                  <p>Education Qualification: B.Com, BBA</p>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/nityo.png" alt="Nityo Infotech" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Nityo Infotech</h3>
+                  <p>Education Qualification: B.Com, BBA, BCA</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/TCs.png" alt="Tata Consultancy Services" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">TCS</h3>
+                  <p>Education Qualification: BCA</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/wipro.jpg" alt="Wipro" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Wipro</h3>
+                  <p>Education Qualification: BCA</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/Convergys.png" alt="Convergys" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Convergys</h3>
+                  <p>Education Qualification: BCA</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/Capgemini.jpg" alt="Capgemini" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">Capgemini</h3>
+                  <p>Education Qualification: BCA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+      <section class="probootstrap-cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Sit For Placements!</h2>
+              <a data-toggle="modal" data-target="#loginModal" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="probootstrap-footer probootstrap-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>About The Placement Cell</h3>
+                <p>The placement cell helps students in finding a job that they want and need. With collaboration with various companies, the placement cell have been always able to guide students.</p>
+                <h3>Social</h3>
+                <ul class="probootstrap-footer-social">
+                  <li><a href="#"><i class="icon-twitter"></i></a></li>
+                  <li><a href="#"><i class="icon-facebook"></i></a></li>
+                  <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                  <li><a href="#"><i class="icon-earth"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-md-push-1">
+              <div class="probootstrap-footer-widget">
+                <h3>Links</h3>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="recruiters.html">Major Recruiters</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>Contact Info</h3>
+                <ul class="probootstrap-contact-info">
+                  <li><i class="icon-location2"></i> <span>The Placement Cell, College, Delhi</span></li>
+                  <li><i class="icon-mail"></i><span>info@theplacementcell.com</span></li>
+                  <li><i class="icon-phone2"></i><span>+123 456 7890</span></li>
+                </ul>
+              </div>
+            </div>
+           
+          </div>
+          <!-- END row -->
+          
+        </div>
+
+        <div class="probootstrap-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 text-left">
+                <p>&copy; 2018 All Rights Reserved.</p>
+              </div>
+              <div class="col-md-4 probootstrap-back-to-top">
+                <p><a href="#" class="js-backtotop">Back to top <i class="icon-arrow-long-up"></i></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    </div>
+    <!-- END wrapper -->
+    
+
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+
+  </body>
+</html>

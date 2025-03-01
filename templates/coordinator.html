@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Placement Cell</title>
+    <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
+    <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
+
+    <style type="text/css">
+      h4{
+        font-size: 20px;
+        line-height: 0px;
+        margin: 0px;
+      }
+      .form-group{
+        line-height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="probootstrap-page-wrapper">
+      <!-- Fixed navbar -->
+      
+      <div class="probootstrap-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+              <span><i class="icon-location2"></i>The Placement Cell, College, Delhi</span>
+              <span><i class="icon-phone2"></i>+1-123-456-7890</span>
+              <span><i class="icon-mail"></i>info@theplacementcell.com</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+              <ul>
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-earth"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default probootstrap-navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="btn-more js-btn-more visible-xs">
+              <a href="#"><i class="icon-dots-three-vertical "></i></a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" title="The placement cell">The Placement Cell</a>
+          </div>
+
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><i class="icon-user"></i>Welcome {{un}}</a></li>
+              <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome User</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><i class="icon-cog"></i>Change Password</a></li>-->
+                  <li><a href="/logout"><i class="icon-log-out"></i>Logout</a></li>
+                <!--</ul>
+              </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="probootstrap-section" style="padding: 0">
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+          <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black;">
+            <!--<li class="nav-header"></li>-->
+            <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
+            <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Edit Events </a></li>
+            <li onclick="f3()"><a href="#"><i class="icon-list"></i> Create List </a></li>
+            <li onclick="f4()" id="searchS"><a href="#"><i class="icon-search"></i> Search Student </a></li>
+            <li onclick="f6()"><a href="#"><i class="icon-add-to-list"></i> Edit Recruiters </a></li>
+            <li onclick="f7()"><a href="#"><i class="icon-publish"></i> Post Information </a></li>
+            <li onclick="f5()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
+          </ul>
+        </div><!-- /span-3 -->
+        
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="db">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard </strong></a>
+          <hr>
+          <form>                      
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="name"><h4>Full name</h4></label>
+                              <input type="text" class="form-control" name="name" id="name" placeholder="{{un}}" readonly="" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="{{eid}}" readonly required>
+                          </div>
+                      </div>
+           </form>
+        
+        </div>
+        
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="ce" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> Create Event For Placement Drive </strong></a>
+          <hr>
+          <form action="/createevent" method="post">                      
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="name"><h4>Company</h4></label>
+                              <input type="text" class="form-control" name="cname" id="cname" placeholder="Enter name of company"  required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Role Offered</h4></label>
+                              <input type="text" class="form-control" name="role" id="role" placeholder="Enter Role Offered" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Expected Salary</h4></label>
+                              <input type="text" class="form-control" name="salary" id="salary" placeholder="Expected salary and details" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Eligibility</h4></label>
+                              <textarea cols="30" rows="5" type="text" class="form-control" id="eligibility" name="eligibility" placeholder="Enter eligibility criteria such as course, required percentage, number of backlogs allowed etc." required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Interview Process</h4></label>
+                              <textarea cols="30" rows="5" type="text" class="form-control" id="interviewprocess" name="interviewprocess" placeholder="Give in brief the interview process." required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Date of Upcoming Round</h4></label>
+                              <input type="date" class="form-control" name="date" id="date" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Venue</h4></label>
+                              <input type="text" class="form-control" name="venue" id="venue" placeholder="Enter the venue of drive" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Other Details</h4></label>
+                              <textarea cols="30" rows="3" type="text" class="form-control" id="other" name="other" placeholder="Give in brief other details (If any)" required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Link</h4></label>
+                              <textarea cols="30" rows="1" type="text" class="form-control" id="link" name="link" placeholder="Enter link of registeration" required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Last Date of Registration</h4></label>
+                              <input type="date" class="form-control" name="dater" id="dater" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                <button class="btn btn-lg" type="reset">Reset</button>
+                            </div>
+                      </div>
+
+           </form>
+        </div>  
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="el" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span>Create or Get List of Students </strong></a>
+          <hr>
+
+          <h2 id="get" onclick="fg()" style="font-size: 24px;">Get List Of Students</h2>
+          
+          <form class="form" action="/getlist" method="post" id="listof" style="display: none;">
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <label for="listof"><h4>Get List Of:</h4></label>
+                  <br>
+                  <input type="radio" name="listof" placeholder="interested" value="Interested" required> Interested
+                  <br>
+                  <input type="radio" name="listof" placeholder="Not Interested" value="Not Interested" required> Not Interested
+                </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-xs-12">
+                    <br>
+                    <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                    <button class="btn btn-lg" type="reset">Reset</button>
+                  </div>
+                </div>
+          </form><br>
+          
+          <h2 id="create" onclick="fc()" style="font-size: 24px;">Create List Of Students</h2>
+            
+          <form class="form" action="/createlist" method="post" id="eligiblelist" style="display: none;">
+                      <div class="form-group">
+                          <div class="col-xs-12">
+                            <label for="pursose"><h4>Purpose for Creating List</h4></label>
+                            <br>
+                            <input type="radio" name="purpose" id="purpose" placeholder="Company" value="For Company" required> For Company
+                            <br>
+                            <input type="radio" name="purpose" id="purpose" placeholder="Self-Reference" value="Self-Reference" required> For Self-Reference
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                            <label for="company"><h4>Mention Name of Company (If Applicable)</h4></label>
+                              <input type="text" class="form-control" name="company">
+                          </div>
+                      </div>
+
+                      <strong>Enter Eligibility Criteria</strong>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="college"><h4>Minimum College Percentage</h4></label>
+                              <input type="number" class="form-control" name="college" placeholder="Enter minimum college percentage">
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="backlogs"><h4>Backlogs Allowed</h4></label>
+                              <input type="number" class="form-control" name="backlogs" placeholder="Enter minimum backlogs allowed">
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="pecent12"><h4>Minimum 12<sup>th</sup> Percentage</h4></label>
+                              <input type="number" class="form-control" name="percent12" placeholder="Enter minimum class 12th percentage">
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="pecent10"><h4>Minimum 10<sup>th</sup> Percentage</h4></label>
+                              <input type="number" class="form-control" name="percent10" placeholder="Enter minimum class 10th percentage">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit">Create</button>
+                                <button class="btn btn-lg" type="reset">Reset</button>
+                            </div>
+                      </div>
+          </form>
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="ss" style="display: none">
+          <!-- Right -->
+            <a href="#"><strong><span class="fa fa-dashboard"></span> Search Student </strong></a>
+            <hr>
+            <form class="form" action="/searchstudent" method="post" id="placementForm">
+                        <div class="form-group">                        
+                            <div class="col-xs-6">
+                                <label for="selectby"><h4>Select Student By:</h4></label>
+                                <select class="form-control" name="selectby" required>
+                                  <option value="enrollmentno">Enrollment Number</option>
+                                  <option value="name">Student Name</option>
+                                  <option value="emailid">Student Email ID</option>
+                                </select>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">                          
+                            <div class="col-xs-6">
+                              <label for="newpass"><h4>Enter Search Value:</h4></label>
+                                <input type="text" class="form-control" name="searchvalue"  placeholder="Enter Search Value" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                  <button class="btn btn-lg" type="reset">Reset</button>
+                              </div>
+                        </div>
+            </form>
+
+          <br/>
+            {% if studentData %}
+            <table style="text-align:center; margin: 200px 0 100px; padding-top: 10px" border="1">
+              <tr>
+                <td colspan="5">Student Details</td>
+                <td colspan="3">Percentage & Marksheets</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Enrollment Number</td>
+                <td>Course & Section</td>
+                <td>Name</td>
+                <td>Email ID</td>
+                <td>Contact Number</td>
+                <td>Class 10<sup>th</sup></td>
+                <td>Class 12<sup>th</sup></td>
+                <td>Till 4<sup>th</sup> Semester</td>
+                <td>Active Backlogs</td>
+                <td>Interested For Placements?</td>
+              </tr>
+              {% for d in data %}
+              <tr>
+                <td>{{d['enrollmentno']}}</td>
+                <td>{{d['course']}} {{d['section']}}</td>
+                <td>{{d['name']}}</td>
+                <td>{{d['email']}}</td>
+                <td>{{d['contactno']}}</td>
+                <td>{{d['percent10']}}<br>{{d['classten']}}</td>
+                <td>{{d['percent12']}}<br>{{d['classtwelve']}}</td>
+                <td>{{d['semone']}}</td>
+                <td>{{d['backlogs']}}</td>
+                <td>{{d['interested']}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+            {% endif %}
+
+          </div>
+
+
+          <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="er" style="display: none">
+            <!-- Right -->
+              <a href="#"><strong><span class="fa fa-dashboard"></span> Edit Major Recruiters </strong></a>
+              <hr>
+              <p>*Enter Multiple Details Comma Separated</p>
+
+              <h2 onclick="addr()" class="col-xs-12" style="font-size: 24px;">Add A Recruiter</h2>
+              
+              <form class="form" action="/add_company" method="post" id="addr" enctype="multipart/form-data" style="display: none;">
+                <div class="form-group">                        
+                    <div class="col-xs-6">
+                        <label for="cname"><h4>Company</h4></label>
+                        <input type="text" class="form-control" name="cname" id="cname" placeholder="Enter name of company"  required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-12">
+                        <label for="cdetails"><h4>Company Details</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="cdetails" name="cdetails" placeholder="Give in brief the interview process." required></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="roleoffered"><h4>Role Offered</h4></label>
+                        <input type="text" class="form-control" name="roleoffered" id="roleoffered" placeholder="Enter role offered" required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="text"><h4>For Courses</h4></label>
+                        <input type="text" class="form-control" name="eligibility" id="eligibility" placeholder="Enter eligible courses " required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="location"><h4>Location</h4></label>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Mention location" required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="text"><h4>Expected Salary</h4></label>
+                        <input type="text" class="form-control" name="salary" id="salary" placeholder="Expected salary and details" required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-12">
+                        <label for="text"><h4>Other Eligibility Details</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="other" name="other" placeholder="Enter other eligibility details such as required percentage, number of backlogs allowed etc." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-12">
+                        <label for="responsibility"><h4>Key Responsibilities</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="responsibility" name="responsibility" placeholder="Enter other eligibility details such as required percentage, number of backlogs allowed etc." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">                        
+                    <div class="col-xs-6">
+                        <label for="clogo"><h4>Company Logo</h4></label>
+                        <input type="file" class="form-control" name="clogo" accept="image/*, application/pdf" max="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                         <br>
+                         <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                         <button class="btn btn-lg" type="reset">Reset</button>
+                     </div>
+               </div>
+                
+              </form>
+              
+              <br>
+              
+              <h2 onclick="editr()" id="editRecInfo" class="col-xs-12" style="font-size: 24px;">Edit or Remove A Recruiter</h2>
+                
+              <form class="form" action="/editrec" method="post" id="editr" style="display: none;">
+                          <div class="form-group">
+                              <div class="col-xs-12">
+                                <label for="companies"><h4>Select a company to edit details</h4></label>
+                              </div>
+                          </div>
+    
+                          <table id="companyD" style="margin: 200px 0 100px; padding-top: 10px; width:40%;" border="1">
+                            <tr>
+                              <th class="editCompany">Company Name</th>
+                            </tr>
+                          </table>
+    
+                          <div class="form-group">
+                               <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit">Create</button>
+                                    <button class="btn btn-lg" type="reset">Reset</button>
+                                </div>
+                          </div>
+              </form>
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="pi" style="display: none">
+          <!-- Right -->
+            <a href="#"><strong><span class="fa fa-dashboard"></span> Post Information </strong></a>
+            <hr>
+            <form class="form" action="/postinfo" method="post" id="placementForm">
+                        <div class="form-group">                        
+                            <div class="col-xs-12">
+                                <label for="title"><h4>Title</h4></label>
+                                <input type="text" class="form-control" name="title" placeholder="Enter the title for information." required>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">                          
+                            <div class="col-xs-12">
+                                <label for="info"><h4>Details</h4></label>
+                                <textarea cols="30" rows="7" type="text" class="form-control" id="details" name="details" placeholder="Provide detailed information." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">                          
+                            <div class="col-xs-6">
+                                <label for="text"><h4>Last date to view</h4></label>
+                                <input type="date" class="form-control" name="date" id="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                  <button class="btn btn-lg" type="reset">Reset</button>
+                              </div>
+                        </div>
+            </form>
+          </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="cp" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> Change Password </strong></a>
+          <hr>
+          <form class="form" action="/changepasst" method="post" id="placementForm">
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="cpass"><h4>Current Password:</h4></label>
+                              <input type="text" class="form-control" name="cpass" placeholder="Current Password" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="newpass"><h4>New Password:</h4></label>
+                              <input type="text" class="form-control" name="newpass"  placeholder="New Password" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                <button class="btn btn-lg" type="reset">Reset</button>
+                            </div>
+                      </div>
+          </form>
+        </div>
+
+      </section>
+      <div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">        
+            <div class="modal-body">
+              <span class="probootstrap-section"><i class="icon-office" style="padding-right:10px;"></i><input type="text" class="modal-title" id="eventModalLabel" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-date"><i class="icon-user"></i>About the Company: </span>
+              <textarea id="aboutComapny" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
+              <span class="probootstrap-date"><i class="icon-pin"></i>Role Offered: <input type="text" id="roleOff" size="53" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-location" style="margin-bottom: 10px"><i class="icon-users2"></i>Eligibility: <input type="text" id="compEligibility" size="56"></span>
+              <span class="probootstrap-location"><i class="icon-location2"></i>Location: <input type="text" id="compLoc" size="56" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-location"><i class="icon-wallet2"></i>Salary Offered: <input type="text" id="salaryOffered" style="margin-bottom: 10px" size="51"></span>
+              <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience:</span>
+              <textarea id="edWE" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
+              <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty:</span> 
+              <textarea type="text" id="rolesResp" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
+              <input type="text" id="cId" hidden>
+              <button type="button" class="btn btn-danger" id="remCompany">Remove</button>
+              <button type="button" class="btn btn-success" id="editComp">Submit</button>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        var t = document.getElementById('er');
+        var u = document.getElementById('pi');
+        var v = document.getElementById('ss');
+        var w = document.getElementById('db');
+        var x = document.getElementById('ce');
+        var y = document.getElementById('el');
+        var z = document.getElementById('cp');
+        var a = document.getElementById('listof');
+        var b = document.getElementById('eligiblelist');
+        var c = document.getElementById('addr');
+        var d = document.getElementById('editr');
+
+
+        function f1(argument) {
+          if (w.style.display === "none") 
+          {
+            w.style.display = "block";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f2(argument) {
+          if (x.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f3(argument) {
+          if (y.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f4(argument){
+          if (v.style.display === "none")
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none"; 
+            z.style.display = "none";
+            v.style.display = "block";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f5(argument) {
+          if (z.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f6(argument) {
+          if (t.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "block";
+            u.style.display = "none";
+          }
+        }
+
+        function f7(argument) {
+          if (u.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "block";
+          }
+        }
+
+        function fg(argument) {
+          if (a.style.display === "none") 
+          {
+            a.style.display = "block";
+            b.style.display = "none";
+            document.getElementById('get').style.color = "#6a56ee";
+            document.getElementById('create').style.color = "black";
+          }
+        }
+
+        function fc(argument) {
+          if (b.style.display === "none") 
+          {
+            b.style.display = "block";
+            a.style.display = "none";
+            document.getElementById('get').style.color = "black";
+            document.getElementById('create').style.color = "#6a56ee";
+          }
+        }
+
+        function addr(argument) {
+          if (c.style.display === "none") 
+          {
+            c.style.display = "block";
+            d.style.display = "none";
+            document.getElementById('addr').style.color = "#6a56ee";
+            document.getElementById('editr').style.color = "black";
+          }
+        }
+
+        function editr(argument) {
+          if (d.style.display === "none") 
+          {
+            c.style.display = "none";
+            d.style.display = "block";
+            document.getElementById('editr').style.color = "#6a56ee";
+            document.getElementById('addr').style.color = "black";
+          }
+        }
+
+      </script>
+      {% if studentData %}
+        <script type="text/javascript">
+          document.getElementById('searchS').click();
+        </script>
+      {% endif %}
+      <footer class="probootstrap-footer probootstrap-bg" style="clear: both;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>About The Placement Cell</h3>
+                <p>The placement cell helps students in finding a job that they want and need. With collaboration with various companies, the placement cell have been always able to guide students.</p>
+                <h3>Social</h3>
+                <ul class="probootstrap-footer-social">
+                  <li><a href="#"><i class="icon-twitter"></i></a></li>
+                  <li><a href="#"><i class="icon-facebook"></i></a></li>
+                  <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                  <li><a href="#"><i class="icon-earth"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-md-push-1">
+              <div class="probootstrap-footer-widget">
+                <h3>Links</h3>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="recruiters.html">Major Recruiters</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>Contact Info</h3>
+                <ul class="probootstrap-contact-info">
+                  <li><i class="icon-location2"></i> <span>The Placement Cell, College, Delhi</span></li>
+                  <li><i class="icon-mail"></i><span>info@theplacementcell.com</span></li>
+                  <li><i class="icon-phone2"></i><span>+123 456 7890</span></li>
+                </ul>
+              </div>
+            </div>
+           
+          </div>
+          <!-- END row -->
+          
+        </div>
+
+        <div class="probootstrap-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 text-left">
+                <p>&copy; 2018 All Rights Reserved.</p>
+              </div>
+              <div class="col-md-4 probootstrap-back-to-top">
+                <p><a href="#" class="js-backtotop">Back to top <i class="icon-arrow-long-up"></i></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- END wrapper -->
+    
+
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/script.js"></script>
+
+  </body>
+</html>
