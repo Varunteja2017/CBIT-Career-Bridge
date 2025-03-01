@@ -4,9 +4,7 @@ CBIT Career Bridge is a web-based platform designed to connect students with com
 
 Features
 
-Student Registration & Login with OTP verification via SMTP.
-
-Company Dashboard to manage job postings and student communications.
+admin Dashboard to manage job postings and student communications.
 
 Admin Panel to control user access and oversee the platform.
 
